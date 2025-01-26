@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="./6796640c450c627a10372e88.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect Wallet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .button {
+      margin-top: 20%;
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      background-color: #4caf50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Connect Your Wallet</h1>
+  <button class="button open" id="connectWallet">Connect Wallet</button>
+
+  <script>
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          alert(`Connected to wallet: ${accounts[0]}`);
+        } catch (error) {
+          alert('Connection failed: ' + error.message);
+        }
+      } else {
+        alert('No Ethereum browser extension detected. Install MetaMask or similar to proceed.');
+      }
+    }
+
+    document.getElementById('connectWallet').addEventListener('click', connectWallet);
+  </script>
+</body>
+</html>
