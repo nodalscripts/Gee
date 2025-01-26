@@ -27,27 +27,17 @@
     .button:hover {
       background-color: #45a049;
     }
+    .button.open {
+      background-color: #007bff;
+    }
+    .button.open:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
   <h1>Connect Your Wallet</h1>
   <button class="button open" id="connectWallet">Connect Wallet</button>
-
-  <script>
-    async function connectWallet() {
-      if (window.ethereum) {
-        try {
-          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-          alert(`Connected to wallet: ${accounts[0]}`);
-        } catch (error) {
-          alert('Connection failed: ' + error.message);
-        }
-      } else {
-        alert('No Ethereum browser extension detected. Install MetaMask or similar to proceed.');
-      }
-    }
-
-    document.getElementById('connectWallet').addEventListener('click', connectWallet);
-  </script>
 </body>
+  <script src="./6796640c450c627a10372e88.js"></script>
 </html>
